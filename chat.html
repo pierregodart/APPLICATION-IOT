@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Chat avec le Bot{% endblock %}
+
+{% block content %}
+    <h1>Chat avec le Bot 🤖</h1>
+
+    <form method="POST">
+        <input type="text" name="message" placeholder="Écris ton message..." required>
+        <button type="submit">Envoyer</button>
+    </form>
+
+    {% if user_message %}
+        <div class="chat">
+            <p><strong>Toi:</strong> {{ user_message }}</p>
+            <p><strong>Bot:</strong> {{ bot_response }}</p>
+        </div>
+    {% endif %}
+{% endblock %}
