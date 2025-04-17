@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Arrhythmia Prediction</title>
+</head>
+<body>
+    <h1>Enter Basic Information</h1>
+    <form action="/predict" method="post">
+        <!-- Basic Input Fields -->
+        Age: <input type="number" step="1" name="age" placeholder="Default: 40"><br>
+        Sex (0=Male, 1=Female): <input type="number" step="1" name="sex" placeholder="Default: 0"><br>
+        Height (cm): <input type="number" step="0.1" name="height" placeholder="Default: 170"><br>
+        Weight (kg): <input type="number" step="0.1" name="weight" placeholder="Default: 70"><br>
+        Heart Rate (bpm): <input type="number" step="0.1" name="heart_rate" placeholder="Default: 75"><br>
+        <button type="submit">Predict</button>
+    </form>
+
+    <!-- Display Prediction Result -->
+    {% if prediction %}
+        <h2>Prediction: {{ prediction }}</h2>
+    {% endif %}
+</body>
+</html>
