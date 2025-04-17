@@ -5,17 +5,16 @@
 {% block content %}
     <h1>Chat avec le Bot 🤖</h1>
 
-    <div class="chat-box">
-        {% if chat_history %}
-            {% for message in chat_history %}
-                <p><strong>{{ message.sender }}:</strong> {{ message.text }}</p>
-            {% endfor %}
-        {% endif %}
-    </div>
-
     <form method="POST">
         {% csrf_token %}
         <input type="text" name="message" placeholder="Écris ton message..." required>
         <button type="submit">Envoyer</button>
     </form>
+
+    {% if user_message %}
+        <div class="chat">
+            <p><strong>Toi:</strong> {{ user_message }}</p>
+            <p><strong>Bot:</strong> {{ bot_response }}</p>
+        </div>
+    {% endif %}
 {% endblock %}
